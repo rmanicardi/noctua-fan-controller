@@ -1,0 +1,18 @@
+[Unit]
+Description=Noctua Fan Speed control
+After=pigpiod.service
+
+[Service]
+ExecStart=/usr/bin/python3 /home/roberto/noctua/noctua-fan-control.py
+WorkingDirectory=/home/roberto/noctua
+Restart=always
+User=roberto
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=journal
+StandardError=journal
+
+
+
+[Install]
+WantedBy=multi-user.target
+ 
